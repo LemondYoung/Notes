@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="employee"
+            type="com.monsterlin.demo_databinding.Employee"/>
+        
+        <variable
+            name="presenter"
+            type="com.monsterlin.demo_databinding.MainActivity.Presenter"/>
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onTextChanged="@{presenter.onTextChanged}"
+            android:hint="输入firstName"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="输入lastName"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_margin="8dp"
+            android:onClick="@{presenter.onClick}"
+            android:text="@{employee.firstName}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_margin="8dp"
+            android:onClick="@{()->presenter.onClickListenerBinding(employee)}"
+            android:text="@{employee.lastName}"/>
+
+
+    </LinearLayout>
+
+
+</layout>

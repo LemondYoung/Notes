@@ -1,0 +1,1 @@
+include ':app', ':demo_customerview', ':demo_dealimg', ':demo_material_design', ':demo_lazyfragment', ':demo_databinding', ':demo_danmu'
