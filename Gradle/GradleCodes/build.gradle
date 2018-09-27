@@ -191,3 +191,25 @@ ex36Hello.doLast{
     println 'dowLast'
 }
 
+
+//括号可省略
+def Task ex41CreateTask1 = task (ex41CreateTask1)
+
+ex41CreateTask1.doLast{
+    println "创建方法原型为：Task task(String name) throws InvalidUserDataException"
+}
+
+ def Task ex41CreateTask2 = task(ex41CreateTask2,group:BasePlugin.BUILD_GROUP)
+
+ ex41CreateTask2.doLast{
+    println "创建方法原型为：Task task (Map<String,?> args ,String name) throws InvalidUserDataException"
+    println "任务分组：${ex41CreateTask2.group}"
+ }
+
+def Task myTask = task ex43GroupTask
+myTask.group = BasePlugin.BUILD_GROUP
+myTask.description = '这是一个构建的引导任务'
+myTask.doLast{
+    println "group:${group},description:${description}"
+}
+
