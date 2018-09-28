@@ -1,5 +1,7 @@
 package com.monsterlin.main;
 
+import com.monsterlin.main.dao.ResultDao;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -117,7 +119,15 @@ public class MainJava {
                             ));
                         } else {
                             if (k == dataKeyMemberList.size() - 1 && countKeyMember == 0) {
-                                System.out.println("「" + memberName + "」" + " ==> 历史记录存在，信息表数据不存在");
+                                System.out.println( memberName  + " ==> 历史记录存在，信息表数据不存在 => 直接将历史记录的数据填入正式库数据");
+                                // FIXME: 2018/9/28 历史记录存在，数据表不存在，则使用历史记录
+                                dataResult.add(new DataBean(
+                                        dataHistoryList.get(j).getName(),
+                                        dataHistoryList.get(j).getGender(),
+                                        dataHistoryList.get(j).getAge(),
+                                        dataHistoryList.get(j).getHeight(),
+                                        dataHistoryList.get(j).getWeight()
+                                ));
                             }
                         }
                     }
@@ -152,5 +162,13 @@ public class MainJava {
             System.out.println(dataBean.getName() + " " + dataBean.getGender() + " "
                     + dataBean.getAge() + " " + dataBean.getHeight() + " " + dataBean.getWeight());
         }
+
+//        System.out.println("=====>>>>> 数据库装载中 <<<<<=====");
+//        ResultDao resultDao = new ResultDao();
+//
+//        for (DataBean dataBean : dataResult) {
+//            int resultCode = resultDao.insertResult(dataBean);
+//            System.out.println("装载结果：" + resultCode);
+//        }
     }
 }

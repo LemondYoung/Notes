@@ -16,5 +16,6 @@
     <orderEntry type="library" name="xmlbeans-2.6.0" level="project" />
     <orderEntry type="library" name="commons-collections4-4.1" level="project" />
     <orderEntry type="library" name="ooxml-schemas-1.1" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.7-bin" level="project" />
   </component>
 </module>
